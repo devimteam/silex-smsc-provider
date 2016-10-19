@@ -1,6 +1,6 @@
 {
   "type": "library",
-  "name": "devimteam/silex-smsc-service-provider",
+  "name": "devimteam/silex-smsc-provider",
   "description": "Silex SMSc service provider",
 
   "keywords": [],
