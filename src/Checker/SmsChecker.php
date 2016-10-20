@@ -2,23 +2,23 @@
 
 namespace Devim\Provider\SmscServiceProvider\Checker;
 
-use Devim\Provider\SmscServiceProvider\SmsRequestService;
+use Devim\Provider\SmscServiceProvider\SmscRequestService;
 
 class SmsChecker implements SmsCheckerInterface
 {
     const JSON_FORMAT = 3;
 
     /**
-     * @var SmsRequestService
+     * @var SmscRequestService
      */
     private $smsRequestService;
 
     /**
      * Receiver constructor.
      *
-     * @param SmsRequestService $smsRequestService
+     * @param SmscRequestService $smsRequestService
      */
-    public function __construct(SmsRequestService $smsRequestService)
+    public function __construct(SmscRequestService $smsRequestService)
     {
         $this->smsRequestService = $smsRequestService;
     }

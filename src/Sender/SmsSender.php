@@ -2,7 +2,7 @@
 
 namespace Devim\Provider\SmscServiceProvider\Sender;
 
-use Devim\provider\SmscServiceProvider\SmsRequestService;
+use Devim\provider\SmscServiceProvider\SmscRequestService;
 
 class SmsSender implements SmsSenderInterface
 {
@@ -13,9 +13,9 @@ class SmsSender implements SmsSenderInterface
     /**
      * Sender constructor.
      *
-     * @param SmsRequestService $smsRequestService
+     * @param SmscRequestService $smsRequestService
      */
-    public function __construct(SmsRequestService $smsRequestService)
+    public function __construct(SmscRequestService $smsRequestService)
     {
         $this->smsRequestService = $smsRequestService;
     }
