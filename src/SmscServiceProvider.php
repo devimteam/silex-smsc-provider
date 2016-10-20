@@ -8,7 +8,7 @@ use Devim\Provider\SmscServiceProvider\Sender\SmsSender;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 
-class SmsServiceProvider implements ServiceProviderInterface
+class SmscServiceProvider implements ServiceProviderInterface
 {
     /**
      * @param Container $container

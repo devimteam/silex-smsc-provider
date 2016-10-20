@@ -5,7 +5,7 @@ namespace Devim\Provider\SmscServiceProvider;
 use Devim\Provider\SmscServiceProvider\Exception\SmsErrorException;
 use Devim\Provider\SmscServiceProvider\Exception\SmsProcessException;
 
-class SmsRequestService
+class SmscRequestService
 {
     /**
      * @var string
