@@ -24,6 +24,15 @@ class SmscServiceProvider implements ServiceProviderInterface
             'checkUrl' => ''
         ];
 
+        $container['sms_request_service'] = function () use ($container) {
+            return new SmscRequestService(
+                $container['sms.urls'],
+                $container['sms.login'],
+                $container['sms.password'],
+                $container['sms.short_code']
+            );
+        };
+
         $container['sms.sender'] = function () use ($container) {
             return new SmsSender($container['sms_request_service']);
         };
