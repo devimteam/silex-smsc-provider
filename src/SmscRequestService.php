@@ -83,7 +83,7 @@ class SmscRequestService
 
         curl_setopt_array($ch, $options);
 
-        $result = json_decode(curl_exec($ch), true);
+        $result = json_decode(iconv('CP1251', 'UTF-8', curl_exec($ch)), true);
 
         $status = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
