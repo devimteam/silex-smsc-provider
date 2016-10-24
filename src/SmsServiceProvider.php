@@ -15,24 +15,24 @@ class SmsServiceProvider implements ServiceProviderInterface
      */
     public function register(Container $container)
     {
-        $container['sms.login'] = '';
-        $container['sms.password'] = '';
-        $container['sms.short_code'] = '';
-        $container['sms.urls'] = [
+        $container['smsc.login'] = '';
+        $container['smsc.password'] = '';
+        $container['smsc.short_code'] = '';
+        $container['smsc.urls'] = [
             'sendUrl' => '',
             'receiveUrl' => '',
             'checkUrl' => ''
         ];
 
-        $container['sms.sender'] = function () use ($container) {
+        $container['smsc.sender'] = function () use ($container) {
             return new SmsSender($container['sms_request_service']);
         };
 
-        $container['sms.receiver'] = function () use ($container) {
+        $container['smsc.receiver'] = function () use ($container) {
             return new SmsReceiver($container['sms_request_service']);
         };
 
-        $container['sms.checker'] = function () use ($container) {
+        $container['smsc.checker'] = function () use ($container) {
             return new SmsChecker($container['sms_request_service']);
         };
     }

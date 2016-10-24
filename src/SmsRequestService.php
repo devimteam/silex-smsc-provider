@@ -68,7 +68,7 @@ class SmsRequestService
         $data['psw'] = $this->password;
 
         if ($method === 'send') {
-            $data['sender_id'] = $this->shortCode;
+            $data['sender'] = $this->shortCode;
         }
 
         $ch = curl_init();
