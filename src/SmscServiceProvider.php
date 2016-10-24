@@ -34,15 +34,15 @@ class SmscServiceProvider implements ServiceProviderInterface
         };
 
         $container['smsc.sender'] = function () use ($container) {
-            return new SmsSender($container['sms_request_service']);
+            return new SmsSender($container['smsc_request_service']);
         };
 
         $container['smsc.receiver'] = function () use ($container) {
-            return new SmsReceiver($container['sms_request_service']);
+            return new SmsReceiver($container['smsc_request_service']);
         };
 
         $container['smsc.checker'] = function () use ($container) {
-            return new SmsChecker($container['sms_request_service']);
+            return new SmsChecker($container['smsc_request_service']);
         };
     }
 }
