@@ -5,7 +5,7 @@ namespace Devim\Provider\SmscServiceProvider;
 use Devim\Provider\SmscServiceProvider\Exception\SmsErrorException;
 use Devim\Provider\SmscServiceProvider\Exception\SmsProcessException;
 
-class SmsRequestService
+class SmscRequestService
 {
     /**
      * @var string
@@ -66,6 +66,7 @@ class SmsRequestService
     {
         $data['login'] = $this->login;
         $data['psw'] = $this->password;
+        $data['charset'] = 'utf-8';
 
         if ($method === 'send') {
             $data['sender'] = $this->shortCode;
@@ -82,7 +83,7 @@ class SmsRequestService
 
         curl_setopt_array($ch, $options);
 
-        $result = json_decode(iconv('CP1251', 'UTF-8', curl_exec($ch)), true);
+        $result = json_decode(curl_exec($ch), true);
 
         $status = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
 

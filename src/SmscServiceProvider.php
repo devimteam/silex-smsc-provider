@@ -8,7 +8,7 @@ use Devim\Provider\SmscServiceProvider\Sender\SmsSender;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 
-class SmsServiceProvider implements ServiceProviderInterface
+class SmscServiceProvider implements ServiceProviderInterface
 {
     /**
      * @param Container $container
@@ -23,6 +23,15 @@ class SmsServiceProvider implements ServiceProviderInterface
             'receiveUrl' => '',
             'checkUrl' => ''
         ];
+
+        $container['sms_request_service'] = function () use ($container) {
+            return new SmscRequestService(
+                $container['sms.urls'],
+                $container['sms.login'],
+                $container['sms.password'],
+                $container['sms.short_code']
+            );
+        };
 
         $container['smsc.sender'] = function () use ($container) {
             return new SmsSender($container['sms_request_service']);
