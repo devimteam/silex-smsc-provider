@@ -28,8 +28,7 @@ class SmscServiceProvider implements ServiceProviderInterface
             return new SmscRequestService(
                 $container['smsc.urls'],
                 $container['smsc.login'],
-                $container['smsc.password'],
-                $container['smsc.short_code']
+                $container['smsc.password']
             );
         };
 
