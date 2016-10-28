@@ -18,11 +18,6 @@ class SmscRequestService
     private $password;
 
     /**
-     * @var string
-     */
-    private $shortCode;
-
-    /**
      * @var array
      */
     private $urlMap;
@@ -33,13 +28,11 @@ class SmscRequestService
      * @param array $urls
      * @param string $login
      * @param string $password
-     * @param string $shortCode
      */
     public function __construct(
         array $urls,
         string $login,
-        string $password,
-        string $shortCode
+        string $password
     )
     {
         $this->urlMap = [
@@ -50,7 +43,6 @@ class SmscRequestService
 
         $this->login = $login;
         $this->password = $password;
-        $this->shortCode = $shortCode;
     }
 
     /**
@@ -67,10 +59,6 @@ class SmscRequestService
         $data['login'] = $this->login;
         $data['psw'] = $this->password;
         $data['charset'] = 'utf-8';
-
-        if ($method === 'send') {
-            $data['sender_id'] = $this->shortCode;
-        }
 
         $ch = curl_init();
 

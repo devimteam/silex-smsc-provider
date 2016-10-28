@@ -26,12 +26,13 @@ class SmsSender implements SmsSenderInterface
      *
      * @return array
      */
-    public function send(string $phone, string $text) : array
+    public function send(string $phone, string $text, string $shortCode) : array
     {
         $data = [
             'phones' => $phone,
             'mes' => $text,
-            'fmt' => self::JSON_FORMAT
+            'fmt' => self::JSON_FORMAT,
+            'sender' => $shortCode
         ];
 
         return $this->smsRequestService->process('send', $data);
