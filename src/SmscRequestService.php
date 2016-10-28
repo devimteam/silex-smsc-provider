@@ -58,7 +58,6 @@ class SmscRequestService
     {
         $data['login'] = $this->login;
         $data['psw'] = $this->password;
-        $data['charset'] = 'utf-8';
 
         $ch = curl_init();
 
