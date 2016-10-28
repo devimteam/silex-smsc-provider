@@ -7,17 +7,9 @@ class NullSmsSender implements SmsSenderInterface
     /**
      * @param string $phone
      * @param string $text
+     * @param string $shortCode
      */
-    public function send(string $phone, string $text)
-    {
-        return;
-    }
-
-    /**
-     * @param string $phone
-     * @param string $smsId
-     */
-    public function check(string $phone, string $smsId)
+    public function send(string $phone, string $text, string $shortCode)
     {
         return;
     }

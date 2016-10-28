@@ -23,6 +23,7 @@ class SmsSender implements SmsSenderInterface
     /**
      * @param string $phone
      * @param string $text
+     * @param string $shortCode
      *
      * @return array
      */
