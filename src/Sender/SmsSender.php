@@ -33,7 +33,8 @@ class SmsSender implements SmsSenderInterface
             'phones' => $phone,
             'mes' => $text,
             'fmt' => self::JSON_FORMAT,
-            'sender' => $shortCode
+            'sender' => $shortCode,
+            'charset' => 'utf-8'
         ];
 
         return $this->smsRequestService->process('send', $data);
