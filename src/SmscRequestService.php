@@ -65,7 +65,9 @@ class SmscRequestService
             CURLOPT_URL => $this->urlMap[$method],
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_POST => true,
-            CURLOPT_POSTFIELDS => $data
+            CURLOPT_POSTFIELDS => $data,
+            CURLOPT_CONNECTTIMEOUT => 15,
+            CURLOPT_TIMEOUT => 20,
         ];
 
         curl_setopt_array($ch, $options);
