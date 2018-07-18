@@ -4,6 +4,7 @@ namespace Devim\Provider\SmscServiceProvider;
 
 use Devim\Provider\SmscServiceProvider\Exception\SmsErrorException;
 use Devim\Provider\SmscServiceProvider\Exception\SmsProcessException;
+use Devim\Provider\SmscServiceProvider\Options\Option;
 
 class SmscRequestService
 {
@@ -48,13 +49,14 @@ class SmscRequestService
     /**
      * @param $method
      * @param $data
+     * @param $opts
      *
      * @return array
      *
      * @throws SmsErrorException
      * @throws SmsProcessException
      */
-    public function process($method, $data) : array
+    public function process($method, $data, Option ...$opts) : array
     {
         $data['login'] = $this->login;
         $data['psw'] = $this->password;
@@ -69,6 +71,10 @@ class SmscRequestService
             CURLOPT_CONNECTTIMEOUT => 15,
             CURLOPT_TIMEOUT => 20,
         ];
+
+        foreach ($opts as $option) {
+            $options = $option->apply($options);
+        }
 
         curl_setopt_array($ch, $options);
 

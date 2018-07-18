@@ -2,6 +2,7 @@
 
 namespace Devim\Provider\SmscServiceProvider\Receiver;
 
+use Devim\Provider\SmscServiceProvider\Options\Option;
 use Devim\Provider\SmscServiceProvider\SmscRequestService;
 
 class SmsReceiver
@@ -26,9 +27,10 @@ class SmsReceiver
     }
 
     /**
+     * @param Option ...$options
      * @return array
      */
-    public function receive() : array
+    public function receive(Option ...$options) : array
     {
         $data = [
             'get_answers' => 1,
@@ -36,6 +38,6 @@ class SmsReceiver
             'hour' => self::LAST_HOUR_RESULT
         ];
 
-        return $this->smsRequestService->process('receive', $data);
+        return $this->smsRequestService->process('receive', $data, ...$options);
     }
 }

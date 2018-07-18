@@ -2,6 +2,7 @@
 
 namespace Devim\Provider\SmscServiceProvider\Sender;
 
+use Devim\Provider\SmscServiceProvider\Options\Option;
 use Devim\provider\SmscServiceProvider\SmscRequestService;
 
 class SmsSender implements SmsSenderInterface
@@ -24,10 +25,11 @@ class SmsSender implements SmsSenderInterface
      * @param string $phone
      * @param string $text
      * @param string $shortCode
+     * @param Option ...$options
      *
      * @return array
      */
-    public function send(string $phone, string $text, string $shortCode) : array
+    public function send(string $phone, string $text, string $shortCode, Option ...$options) : array
     {
         $data = [
             'phones' => $phone,
@@ -37,6 +39,6 @@ class SmsSender implements SmsSenderInterface
             'charset' => 'utf-8'
         ];
 
-        return $this->smsRequestService->process('send', $data);
+        return $this->smsRequestService->process('send', $data, ...$options);
     }
 }
