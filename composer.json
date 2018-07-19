@@ -4,7 +4,7 @@
   "description": "Silex SMSc service provider",
 
   "keywords": [],
-  "license": "",
+  "license": "BSD-4-Clause",
   "authors": [],
   "minimum-stability": "dev",
   "prefer-stable": true,
